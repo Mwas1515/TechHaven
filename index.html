@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechHaven | Premium Electronics</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header class="header">
+    <div class="logo">TechHaven</div>
+    <div class="header-actions">
+      <button class="btn btn-outline" aria-label="Toggle Dark Mode">🌓 Theme</button>
+      <button class="btn btn-primary" aria-label="Open Cart">🛒 Cart (2)</button>
+    </div>
+  </header>
+
+  <main class="layout-container">
+    
+    <!-- Sidebar: Filters (UI Only) -->
+    <aside class="sidebar-filters">
+      <h3>Filters</h3>
+      <div class="filter-group">
+        <label>Category</label>
+        <select>
+          <option>All Products</option>
+          <option>Headphones</option>
+          <option>Keyboards</option>
+          <option>Displays</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Sort By</label>
+        <select>
+          <option>Price: Low to High</option>
+          <option>Price: High to Low</option>
+          <option>Top Rated</option>
+        </select>
+      </div>
+    </aside>
+
+    <!-- Product Grid -->
+    <section class="product-grid">
+      
+      <!-- Product 1 -->
+      <article class="product-card">
+        <div class="product-img-wrapper">
+          <img src="https://placehold.co/400x300/e2e8f0/475569?text=Noise+Cancelling+Cans" alt="Wireless Headphones" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h2 class="product-title">AeroNoise Pro Headphones</h2>
+          <div class="product-rating">⭐⭐⭐⭐⭐ (124)</div>
+          <p class="product-price">$299.00</p>
+          <button class="btn btn-primary w-100">Add to Cart</button>
+        </div>
+      </article>
+
+      <!-- Product 2 -->
+      <article class="product-card">
+        <div class="product-img-wrapper">
+          <img src="https://placehold.co/400x300/e2e8f0/475569?text=Mechanical+Keyboard" alt="Mechanical Keyboard" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h2 class="product-title">Tactile K84 Keyboard</h2>
+          <div class="product-rating">⭐⭐⭐⭐½ (89)</div>
+          <p class="product-price">$149.00</p>
+          <button class="btn btn-primary w-100">Add to Cart</button>
+        </div>
+      </article>
+
+      <!-- Product 3 -->
+      <article class="product-card">
+        <div class="product-img-wrapper">
+          <img src="https://placehold.co/400x300/e2e8f0/475569?text=4K+Monitor" alt="4K Monitor" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h2 class="product-title">VisionX 27" 4K Monitor</h2>
+          <div class="product-rating">⭐⭐⭐⭐⭐ (45)</div>
+          <p class="product-price">$450.00</p>
+          <button class="btn btn-primary w-100">Add to Cart</button>
+        </div>
+      </article>
+
+      <!-- Product 4 -->
+      <article class="product-card">
+        <div class="product-img-wrapper">
+          <img src="https://placehold.co/400x300/e2e8f0/475569?text=Wireless+Mouse" alt="Wireless Mouse" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h2 class="product-title">ErgoGlide Pro Mouse</h2>
+          <div class="product-rating">⭐⭐⭐⭐ (210)</div>
+          <p class="product-price">$79.00</p>
+          <button class="btn btn-primary w-100">Add to Cart</button>
+        </div>
+      </article>
+
+      <!-- Product 5 -->
+      <article class="product-card">
+        <div class="product-img-wrapper">
+          <img src="https://placehold.co/400x300/e2e8f0/475569?text=Smart+Watch" alt="Smart Watch" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h2 class="product-title">Nexus Chrono Smartwatch</h2>
+          <div class="product-rating">⭐⭐⭐⭐½ (33)</div>
+          <p class="product-price">$199.00</p>
+          <button class="btn btn-primary w-100">Add to Cart</button>
+        </div>
+      </article>
+
+      <!-- Product 6 -->
+      <article class="product-card">
+        <div class="product-img-wrapper">
+          <img src="https://placehold.co/400x300/e2e8f0/475569?text=USB-C+Hub" alt="USB-C Hub" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h2 class="product-title">OmniPort 8-in-1 Hub</h2>
+          <div class="product-rating">⭐⭐⭐⭐⭐ (512)</div>
+          <p class="product-price">$45.00</p>
+          <button class="btn btn-primary w-100">Add to Cart</button>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <!-- Static Cart Sidebar (UI Only - currently hidden off-screen) -->
+  <aside class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button class="btn-close">×</button>
+    </div>
+    <div class="cart-items">
+      <p>AeroNoise Pro Headphones - $299.00</p>
+      <p>OmniPort 8-in-1 Hub - $45.00</p>
+    </div>
+    <div class="cart-footer">
+      <h3>Total: $344.00</h3>
+      <button class="btn btn-primary w-100">Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Product Detail Modal (UI Only - Hidden by default) -->
+  <dialog class="product-modal" id="product-modal">
+    <div class="modal-content">
+      <button class="btn-close">×</button>
+      <img src="https://placehold.co/600x400/e2e8f0/475569?text=Product+Detail" alt="Detail">
+      <h2>AeroNoise Pro Headphones</h2>
+      <p>Industry-leading noise cancellation with 30-hour battery life.</p>
+      <h3>$299.00</h3>
+      <button class="btn btn-primary">Add to Cart</button>
+    </div>
+  </dialog>
+
+</body>
+</html>

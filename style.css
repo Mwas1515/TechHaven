@@ -1,0 +1,259 @@
+/* ==========================================================================
+   Design System & CSS Custom Properties (Deliverable 2 & 5)
+   ========================================================================== */
+:root {
+  /* Typography */
+  --font-main: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --text-base: 16px;
+  --text-xl: 1.5rem;
+  --text-sm: 0.875rem;
+
+  /* Light Theme Colors (Accessible Contrast) */
+  --bg-color: #f8fafc;
+  --surface-color: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --accent-color: #2563eb;
+  --accent-hover: #1d4ed8;
+  --border-color: #e2e8f0;
+  
+  /* Spacing */
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+
+  /* Animations */
+  --transition-fast: 0.2s ease-in-out;
+}
+
+/* Dark Mode Implementation */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #0f172a;
+    --surface-color: #1e293b;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --border-color: #334155;
+    --accent-color: #3b82f6;
+    --accent-hover: #60a5fa;
+  }
+}
+
+/* ==========================================================================
+   Reset & Base Styles
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.6;
+  font-size: var(--text-base);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   Layout 
+   ========================================================================== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-md) var(--space-xl);
+  background-color: var(--surface-color);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: var(--text-xl);
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+.layout-container {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: var(--space-xl);
+  padding: var(--space-xl);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .layout-container {
+    grid-template-columns: 1fr; /* Mobile-responsive single column */
+  }
+}
+
+/* ==========================================================================
+   Components: Product Grid & Cards
+   ========================================================================== */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-xl);
+}
+
+.product-card {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Micro-interaction: Hover state */
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.product-img-wrapper {
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.product-img-wrapper img {
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-img-wrapper img {
+  transform: scale(1.05); /* Image zoom on hover */
+}
+
+.product-info {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-title {
+  font-size: var(--text-base);
+  margin-bottom: var(--space-sm);
+}
+
+.product-rating {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-sm);
+}
+
+.product-price {
+  font-size: var(--text-xl);
+  font-weight: bold;
+  margin-bottom: var(--space-md);
+  margin-top: auto; /* Pushes button to bottom */
+}
+
+/* ==========================================================================
+   Buttons & Inputs
+   ========================================================================== */
+.btn {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.btn-primary {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.w-100 {
+  width: 100%;
+}
+
+select {
+  width: 100%;
+  padding: var(--space-sm);
+  margin-top: var(--space-sm);
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  background-color: var(--surface-color);
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   UI Overlays: Cart Sidebar & Modal
+   ========================================================================== */
+/* Note: Adding an 'active' class via JS would make these visible */
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: -350px; /* Hidden off-screen */
+  width: 350px;
+  height: 100vh;
+  background-color: var(--surface-color);
+  box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+  padding: var(--space-lg);
+  transition: right 0.3s ease;
+  z-index: 200;
+}
+
+.product-modal {
+  display: none; /* Change to 'block' or 'flex' to view */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--surface-color);
+  padding: var(--space-xl);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  z-index: 200;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* ==========================================================================
+   Print Stylesheet 
+   ========================================================================== */
+@media print {
+  body {
+    background-color: white;
+    color: black;
+  }
+  .header-actions, .sidebar-filters, .btn, .cart-sidebar {
+    display: none !important; /* Hide non-essential UI for printing */
+  }
+  .layout-container {
+    display: block;
+  }
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on paper */
+  }
+  .product-card {
+    page-break-inside: avoid;
+    border: 1px solid #ccc;
+  }
+}
